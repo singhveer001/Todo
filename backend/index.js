@@ -1,10 +1,16 @@
 const { todo } = require("./db");
 const { createTodo, updateTodo } = require("./types");
-
 const express = require("express");
+const cors = require ("cors");
 const app = express();
 
 app.use(express.json());
+// for all request
+app.use(cors());
+// for speciific
+// app.use(cors({
+//     origin:"https:localhost:5173"
+// }));
 
 // creates a post endpoint for creating a todo
 app.post('/todo',async function(req,res){
